@@ -1,7 +1,7 @@
 <?php
     require_once("../database.php");
     require_once("../models/articles.php");
-    
+
     $link = db_connect();
 
     if(isset($_GET['action']))
@@ -9,19 +9,13 @@
     else
         $action = "";
 
+
     if ($action == "add"){
-        $id = 0;
         if(!empty($_POST)){
             articles_new($link, $_POST['title'], $_POST['date'], $_POST['content']);
             header("Location: index.php");
         }
-        else {
-            $article['title']='';
-            $article['date']='';
-            $article['content']='';
-        }
-        $articles = articles_get($link, $id);
-        include("../views/article_admin.php");
+        include("../views/edit_form_admin.php");
     }
     else if ($action == "edit"){
         if(!isset($_GET['id']))
@@ -30,7 +24,7 @@
         $id = (int)$_GET['id'];
 
         if(!empty($_POST) && $id > 0){
-            articles_edit($link, $id, $_GET['title'], $_GET['date'], $_GET['content']);
+            articles_edit($link, $id, $_POST['title'], $_POST['date'], $_POST['content']);
             header("Location: index.php");
         }
         /*elseif ($action == "delete"){
@@ -40,11 +34,12 @@
 
         }*/
 
-        $articles = articles_get($link, $id);
-        include("../views/article_admin.php");
+
+        $article = articles_get($link, $id);
+        include("../views/edit_form_admin.php");
     }
     else {
         $articles = articles_all($link);
-        include("../views/articles_admin.php");
+        include("../views/show_articles_admin.php");
     }
 ?>

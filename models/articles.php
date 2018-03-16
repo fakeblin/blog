@@ -58,22 +58,24 @@
     }
 
     function articles_edit($link, $id, $title, $date, $content) {
-        $title = trim($_GET['title']);
-        $date = trim($_GET['date']);
-        $content = trim($_GET['content']);
-        $id = (int) $id;
+        $title = trim($title);
+        $date = trim($date);
+        $content = trim($content);
+        $id = (int)$id;
 
+        var_dump($title, $date, $content, $id);
         if ($title == '')
             return false;
 
         $sql = "UPDATE articles SET title='%s', content='%s', date='%s' WHERE id='%d'";
 
-        $query = sprintf($sql, mysqli_real_escape_string($link, $title),
-            mysqli_real_escape_string($link, $date),
+        $query = sprintf($sql,
+            mysqli_real_escape_string($link, $title),
             mysqli_real_escape_string($link, $content),
+            mysqli_real_escape_string($link, $date),
             $id);
 
-        $result = mysqli.$query($link, $query);
+        $result = mysqli_query($link, $query);
 
         if (!$result)
             die(mysqli_error($link));
