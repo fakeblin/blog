@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>My first Blog <br> Two Page(views>article.php)</h1>
+        <h1>My first Blog <br> Two Page(views>watch_article.php)</h1>
         <div>
             <div class="article">
                 <h3>

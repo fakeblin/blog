@@ -10,7 +10,7 @@
     <div class="container">
         <h1>My first Blog</h1>
         <div>
-        <a href="../index.php?action=add"> ADD Title</a>
+        <a href="index.php?action=add"> ADD Title</a>
             <table>
                 <tr>
                     <th>Date</th>
@@ -22,8 +22,8 @@
                 <tr>
                     <td><?=$a['date']?></td>
                     <td><?=$a['title']?></td>
-                    <td><a href="../index.php?action=edit&id=<?=$a['id']?>">Edit</a></td>
-                    <td><a href="../index.php?action=delete&id=<?=$a['id']?>">Delete</a></td>
+                    <td><a href="index.php?action=edit&id=<?=$a['id']?>">Edit</a></td>
+                    <td><a href="index.php?action=delete&id=<?=$a['id']?>">Delete</a></td>
                 </tr>
                 <?php endforeach ?>
             </table>

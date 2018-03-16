@@ -41,7 +41,8 @@
         if ($title == '')
             return false;
 
-        if (isset($_GET['title'])) $title = $_GET['title'];
+        if (isset($_GET['title']))
+            $title = $_GET['title'];
 
         // Запрос        
         $t = "INSERT INTO articles (title, date, content) VALUES ('%s', '%s', '%s')";
@@ -63,7 +64,6 @@
         $content = trim($content);
         $id = (int)$id;
 
-        var_dump($title, $date, $content, $id);
         if ($title == '')
             return false;
 
